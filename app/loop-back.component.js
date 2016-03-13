@@ -1,4 +1,4 @@
-System.register(['angular2/core', './hero'], function(exports_1, context_1) {
+System.register(['angular2/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,38 +10,27 @@ System.register(['angular2/core', './hero'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, hero_1;
-    var AppComponent;
+    var core_1;
+    var LoopbackComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (hero_1_1) {
-                hero_1 = hero_1_1;
             }],
         execute: function() {
-            AppComponent = (function () {
-                function AppComponent() {
-                    this.title = 'Tour of Heroes';
-                    this.heroes = [
-                        new hero_1.Hero(1, 'Windstorm'),
-                        new hero_1.Hero(13, 'Bombasto'),
-                        new hero_1.Hero(15, 'Magneta'),
-                        new hero_1.Hero(20, 'Tornado')
-                    ];
-                    this.myHero = this.heroes[0];
+            LoopbackComponent = (function () {
+                function LoopbackComponent() {
                 }
-                AppComponent = __decorate([
+                LoopbackComponent = __decorate([
                     core_1.Component({
-                        selector: 'my-app',
-                        template: "\n  <h1>{{title}}</h1>\n  <h2>My favorite hero is: {{myHero.name}}</h2>\n  <p>Heroes:</p>\n  <ul>\n    <li *ngFor=\"#hero of heroes\">\n      {{ hero.name }}\n      </li>\n  </ul>\n  <p *ngIf=\"heroes.length > 3\">There are many heroes!</p>\n"
+                        selector: 'loop-back',
+                        template: "\n    <input #box (keyup)=\"0\">\n    <p>{{box.value}}</p>\n  "
                     }), 
                     __metadata('design:paramtypes', [])
-                ], AppComponent);
-                return AppComponent;
+                ], LoopbackComponent);
+                return LoopbackComponent;
             }());
-            exports_1("AppComponent", AppComponent);
+            exports_1("LoopbackComponent", LoopbackComponent);
         }
     }
 });
