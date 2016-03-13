@@ -1,0 +1,14 @@
+"scripts": {
+    // run the compiler and a server at the same time, both in "watch mode"
+    "start": "concurrently \"npm run tsc:w\" \"npm run lite\" ",
+    // run the TypeScript compiler once
+    "tsc": "tsc",
+    // run the TypeScript compiler in watch mode; the process keeps running, awaiting changes to TypeScript files and re-compiling when it sees them.
+    "tsc:w": "tsc -w",
+    // run the lite-server, a light-weight, static file server, written and maintained by John Papa with excellent support for Angular apps that use routing
+    "lite": "lite-server",
+    // runs the typings tool
+    "typings": "typings",
+    // called by npm automatically after it successfully completes package installation. This script installs the TypeScript definition files this app requires.
+    "postinstall": "typings install" 
+  },
