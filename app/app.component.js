@@ -1,4 +1,4 @@
-System.register(['angular2/core', './hero'], function(exports_1, context_1) {
+System.register(['angular2/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,38 +10,28 @@ System.register(['angular2/core', './hero'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, hero_1;
+    var core_1;
     var AppComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (hero_1_1) {
-                hero_1 = hero_1_1;
             }],
         execute: function() {
-            // This is a metadata for class below.
+            // This is metadata for class
             AppComponent = (function () {
                 function AppComponent() {
                     this.title = 'Tour of Heroes';
-                    this.heroes = [
-                        new hero_1.Hero(1, 'Windstorm'),
-                        new hero_1.Hero(13, 'Bombasto'),
-                        new hero_1.Hero(15, 'Magneta'),
-                        new hero_1.Hero(20, 'Tornado')
-                    ];
-                    this.myHero = this.heroes[0];
+                    this.hero = {
+                        id: 1,
+                        name: 'Windstorm'
+                    };
                 }
-                // Look at the template to see how method is called.
-                AppComponent.prototype.checkEvent = function () {
-                    console.log('Hero is added');
-                };
-                ;
                 AppComponent = __decorate([
                     core_1.Component({
+                        // the place were we put template
                         selector: 'my-app',
-                        template: "\n    <h1>{{title}}</h1>\n    <h2>My favorite hero is: <i>Hero.name:</i> {{myHero.name}}, <i>Hero.id:</i> {{myHero.id}}</h2>\n    \n    <button (click)=checkEvent()>Check the event of adding</button>\n    \n    <p>Heroes:</p>\n    <ul>\n      <li *ngFor=\"#hero of heroes\">\n        {{ hero.name }}\n        </li>\n    </ul>\n    <p *ngIf=\"heroes.length > 3\">There are many heroes!</p>\n  "
+                        template: "\n    <h1>{{title}}</h1>\n    <h2>{{hero.name}} details!</h2>\n    <div><label>id: </label>{{hero.id}}</div>\n    <div>\n      <label>name: </label>\n      <div><input [(ngModel)]=\"hero.name\" placeholder=\"name\"></div>\n    </div>\n    "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);

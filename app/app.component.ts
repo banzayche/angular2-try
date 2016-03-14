@@ -1,41 +1,30 @@
-// import of components
 import {Component} from 'angular2/core';
-import {Hero} from './hero'
 
-// This is a metadata for class below.
+// we use interface instead class, beacuse we don't need any method in it.
+// if we needed some methods in it, we should use class instead interface.
+interface Hero {
+  id: number;
+  name: string;
+}
+
+// This is metadata for class
 @Component({
+  // the place were we put template
   selector: 'my-app',
   template: `
     <h1>{{title}}</h1>
-    <h2>My favorite hero is: <i>Hero.name:</i> {{myHero.name}}, <i>Hero.id:</i> {{myHero.id}}</h2>
-    
-    <button (click)=checkEvent()>Check the event of adding</button>
-    
-    <p>Heroes:</p>
-    <ul>
-      <li *ngFor="#hero of heroes">
-        {{ hero.name }}
-        </li>
-    </ul>
-    <p *ngIf="heroes.length > 3">There are many heroes!</p>
-  `
+    <h2>{{hero.name}} details!</h2>
+    <div><label>id: </label>{{hero.id}}</div>
+    <div>
+      <label>name: </label>
+      <div><input [(ngModel)]="hero.name" placeholder="name"></div>
+    </div>
+    `
 })
-
-// Class that we want to export from this file.
 export class AppComponent {
-  title = 'Tour of Heroes';
-
-  heroes = [
-    new Hero(1, 'Windstorm'),
-    new Hero(13, 'Bombasto'),
-    new Hero(15, 'Magneta'),
-    new Hero(20, 'Tornado')
-  ];
-
-  // Look at the template to see how method is called.
-  checkEvent() {
-    console.log('Hero is added');
+  public title = 'Tour of Heroes';
+  public hero: Hero = {
+    id: 1,
+    name: 'Windstorm'
   };
-
-  myHero = this.heroes[0];  
 }
