@@ -21,6 +21,7 @@ System.register(['angular2/core', './hero'], function(exports_1, context_1) {
                 hero_1 = hero_1_1;
             }],
         execute: function() {
+            // This is a metadata for class below.
             AppComponent = (function () {
                 function AppComponent() {
                     this.title = 'Tour of Heroes';
@@ -32,10 +33,15 @@ System.register(['angular2/core', './hero'], function(exports_1, context_1) {
                     ];
                     this.myHero = this.heroes[0];
                 }
+                // Look at the template to see how method is called.
+                AppComponent.prototype.checkEvent = function () {
+                    console.log('Hero is added');
+                };
+                ;
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n  <h1>{{title}}</h1>\n  <h2>My favorite hero is: {{myHero.name}}</h2>\n  <p>Heroes:</p>\n  <ul>\n    <li *ngFor=\"#hero of heroes\">\n      {{ hero.name }}\n      </li>\n  </ul>\n  <p *ngIf=\"heroes.length > 3\">There are many heroes!</p>\n"
+                        template: "\n    <h1>{{title}}</h1>\n    <h2>My favorite hero is: <i>Hero.name:</i> {{myHero.name}}, <i>Hero.id:</i> {{myHero.id}}</h2>\n    \n    <button (click)=checkEvent()>Check the event of adding</button>\n    \n    <p>Heroes:</p>\n    <ul>\n      <li *ngFor=\"#hero of heroes\">\n        {{ hero.name }}\n        </li>\n    </ul>\n    <p *ngIf=\"heroes.length > 3\">There are many heroes!</p>\n  "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);

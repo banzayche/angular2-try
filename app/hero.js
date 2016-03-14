@@ -5,6 +5,7 @@ System.register([], function(exports_1, context_1) {
     return {
         setters:[],
         execute: function() {
+            // create the class Hero (something like model in backbone, I guess)
             Hero = (function () {
                 function Hero(id, name) {
                     this.id = id;
