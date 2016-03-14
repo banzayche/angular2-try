@@ -29,6 +29,10 @@ System.register(['./mock-heroes', 'angular2/core'], function(exports_1, context_
                 };
                 // See the "Take it slow" appendix
                 HeroService.prototype.getHeroesSlowly = function () {
+                    // 1. About es6 promises:
+                    // http://www.datchley.name/es6-promises/
+                    // 2. About arrow functions:
+                    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
                     return new Promise(function (resolve) {
                         return setTimeout(function () { return resolve(mock_heroes_1.HEROES); }, 2000);
                     } // 2 seconds

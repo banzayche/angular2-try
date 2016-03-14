@@ -68,19 +68,27 @@ import {HeroService} from './hero.service';
   `],
   //for another components to add into DOM
   directives: [HeroDetailComponent],
-  // for services
+  // for services registration
+  // The providers array tells Angular to create a fresh instance of the HeroService when it creates a new
+  // AppComponent. The AppComponent can use that service to get heroes and so can every child component of its
+  // component tree.
   providers: [HeroService]
 })
 export class AppComponent implements OnInit {
   title = 'Tour of Heroes';
   heroes: Hero[];
   selectedHero: Hero;
+  
+  // to add new _heroService property and identifies it as a HeroService injection
   constructor(private _heroService: HeroService) { }
+  
   getHeroes() {
     this._heroService.getHeroes().then(heroes => this.heroes = heroes);
     // or we can use slow mode:)
     // this._heroService.getHeroes().then(heroes => this.heroes = heroes);
   }
+
+  // do something when initialize
   ngOnInit() {
     this.getHeroes();
   }
