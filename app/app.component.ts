@@ -14,6 +14,8 @@ import { HeroDetailComponent } from './hero-detail.component';
 			<a [routerLink]="['Dashboard']">Dashboard</a>
 			<a [routerLink]="['Heroes']">Heroes</a>
 		</nav>
+
+		<!-- We use router-outlet tag to display different templates on different routes -->
 		<router-outlet></router-outlet>
 	`,
 	styleUrls: ['app/templates/app.component.css'],
@@ -23,6 +25,7 @@ import { HeroDetailComponent } from './hero-detail.component';
 		HeroService
 	]
 })
+
 @RouteConfig([
 	{
 		path: '/heroes',

@@ -40,7 +40,7 @@ System.register(['angular2/core', 'angular2/router', './hero.service', './heroes
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n\t\t<h1>{{title}}</h1>\n\t\t<nav>\n\t\t\t<a [routerLink]=\"['Dashboard']\">Dashboard</a>\n\t\t\t<a [routerLink]=\"['Heroes']\">Heroes</a>\n\t\t</nav>\n\t\t<router-outlet></router-outlet>\n\t",
+                        template: "\n\t\t<h1>{{title}}</h1>\n\t\t<nav>\n\t\t\t<a [routerLink]=\"['Dashboard']\">Dashboard</a>\n\t\t\t<a [routerLink]=\"['Heroes']\">Heroes</a>\n\t\t</nav>\n\n\t\t<!-- We use router-outlet tag to display different templates on different routes -->\n\t\t<router-outlet></router-outlet>\n\t",
                         styleUrls: ['app/templates/app.component.css'],
                         directives: [router_1.ROUTER_DIRECTIVES],
                         providers: [

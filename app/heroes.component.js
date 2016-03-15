@@ -33,7 +33,6 @@ System.register(['angular2/core', 'angular2/router', './hero-detail.component', 
                 function HeroesComponent(_router, _heroService) {
                     this._router = _router;
                     this._heroService = _heroService;
-                    this.title = 'Tour of Heroes';
                 }
                 HeroesComponent.prototype.getHeroes = function () {
                     var _this = this;
