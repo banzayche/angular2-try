@@ -16,15 +16,17 @@ import {HeroService} from './hero.service';
   // HeroesComponent. The HeroesComponent can use that service to get heroes and so can every child component of its
   // component tree.
 })
+
 export class HeroesComponent implements OnInit {
   heroes: Hero[];
   selectedHero: Hero;
   
+
   // to add new _heroService property and identifies it as a HeroService injection
   constructor(
     private _router: Router,
     private _heroService: HeroService) { }
-  
+
   getHeroes() {
     this._heroService.getHeroes().then(heroes => this.heroes = heroes);
     // or we can use slow mode:)
@@ -33,7 +35,7 @@ export class HeroesComponent implements OnInit {
 
   // do something when initialize
   ngOnInit() {
-    this.getHeroes();
+    this.getHeroes();    
   }
   onSelect(hero: Hero) { this.selectedHero = hero; }
 

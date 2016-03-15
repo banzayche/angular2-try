@@ -17,3 +17,6 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arro
 
 TypeScript Docs:
 http://www.typescriptlang.org/
+
+more Type Script:
+http://www.johnpapa.net/typescriptpost3/
