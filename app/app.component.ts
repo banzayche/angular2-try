@@ -16,6 +16,7 @@ import { HeroDetailComponent } from './hero-detail.component';
 		</nav>
 		<router-outlet></router-outlet>
 	`,
+	styleUrls: ['app/templates/app.component.css'],
 	directives: [ROUTER_DIRECTIVES],
 	providers: [
 		ROUTER_PROVIDERS,

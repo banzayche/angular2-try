@@ -7,10 +7,11 @@ import { HeroService } from './hero.service';
 @Component({
 	selector: 'my-dashboard',
 	templateUrl: 'app/templates/dashboard.component.html',
+	styleUrls: ['app/templates/dashboard.component.css']
 })
 export class DashboardComponent { 
 	heroes: Hero[] = [];
-	
+
 	constructor(
 		private _router: Router,
 		private _heroService: HeroService) {
