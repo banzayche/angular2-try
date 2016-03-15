@@ -1,41 +1,49 @@
-// import of components
-import {Component} from 'angular2/core';
-import {Hero} from './hero'
+import { Component } from 'angular2/core';
+import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
 
-// This is a metadata for class below.
+import { HeroService }     from './hero.service';
+import { HeroesComponent } from './heroes.component';
+import { DashboardComponent } from './dashboard.component';
+import { HeroDetailComponent } from './hero-detail.component';
+
 @Component({
-  selector: 'my-app',
-  template: `
-    <h1>{{title}}</h1>
-    <h2>My favorite hero is: <i>Hero.name:</i> {{myHero.name}}, <i>Hero.id:</i> {{myHero.id}}</h2>
-    
-    <button (click)=checkEvent()>Check the event of adding</button>
-    
-    <p>Heroes:</p>
-    <ul>
-      <li *ngFor="#hero of heroes">
-        {{ hero.name }}
-        </li>
-    </ul>
-    <p *ngIf="heroes.length > 3">There are many heroes!</p>
-  `
+	selector: 'my-app',
+	template: `
+		<h1>{{title}}</h1>
+		<nav>
+			<a [routerLink]="['Dashboard']">Dashboard</a>
+			<a [routerLink]="['Heroes']">Heroes</a>
+		</nav>
+
+		<!-- We use router-outlet tag to display different templates on different routes -->
+		<router-outlet></router-outlet>
+	`,
+	styleUrls: ['app/templates/app.component.css'],
+	directives: [ROUTER_DIRECTIVES],
+	providers: [
+		ROUTER_PROVIDERS,
+		HeroService
+	]
 })
 
-// Class that we want to export from this file.
+@RouteConfig([
+	{
+		path: '/heroes',
+		name: 'Heroes',
+		component: HeroesComponent
+	},
+	{
+		path: '/dashboard',
+		name: 'Dashboard',
+		component: DashboardComponent,
+		useAsDefault: true
+	},
+	{
+		path: '/detail/:id',
+		name: 'HeroDetail',
+		component: HeroDetailComponent
+	}
+])
 export class AppComponent {
-  title = 'Tour of Heroes';
-
-  heroes = [
-    new Hero(1, 'Windstorm'),
-    new Hero(13, 'Bombasto'),
-    new Hero(15, 'Magneta'),
-    new Hero(20, 'Tornado')
-  ];
-
-  // Look at the template to see how method is called.
-  checkEvent() {
-    console.log('Hero is added');
-  };
-
-  myHero = this.heroes[0];  
+	title = 'Tour of Heroes';
 }
